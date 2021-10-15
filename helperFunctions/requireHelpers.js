@@ -15,4 +15,9 @@ const readAppend = (info, file) => {
     });
   };
 
-module.exports = { read, readAppend };
+const writeToFile = (finalFile, content) =>
+    fs.writeFile(finalFile, JSON.stringify(content, null, 4), (err) =>
+        err ? console.error(err) : console.info(`\nNote data written can be found in the file ${finalFile}`)
+);
+
+module.exports = { read, readAppend, writeToFile };
